@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS Shadow Effect</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+<div class="hero">
+<h1 class="text">Hey Plaxity!</h1>
+
+</div>
+    
+
+</body>
+
+<script>
+const walk =100;
+const hero = document.querySelector('.hero');
+const text = document.querySelector('h1');
+function MyCssEffect(e){
+    const width = hero.offsetWidth;
+    const height = hero.offsetHeight;
+    let x = e.offsetX;
+    let y = e.offsetY
+    if(this!==e.target){
+        x = x + e.target.offsetLeft;
+      y = y + e.target.offsetTop;
+    }
+    const xmove =Math.round((x/width*walk) -(walk/2));
+    const ymove =Math.round((y/height*walk) -(walk/2));
+    
+    text.style.textShadow=`${xmove}px ${ymove}px 0 red`;
+    
+    }
+
+
+hero.addEventListener('mousemove', MyCssEffect);
+
+
+</script>
+
+</html>
